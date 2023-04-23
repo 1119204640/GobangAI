@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 07222327bbf814e038e3b3c309ab232d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - top_left: {instanceID: 0}
+  - top_right: {instanceID: 0}
+  - bottom_left: {instanceID: 0}
+  - bottom_right: {instanceID: 0}
+  - blackChess: {fileID: 8467778305380478718, guid: 5b791250e0f6d4fd58ce04db163e1e12, type: 3}
+  - whiteChess: {fileID: 3422851764866058916, guid: a64878c24632f415baadf12a6dc9e08f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
