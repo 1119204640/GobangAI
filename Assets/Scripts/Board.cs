@@ -12,7 +12,7 @@ public class Board : MonoBehaviour
     };
 
     private Dictionary<string, int> scoreStatus = new Dictionary<string, int>() {
-        {"one", 1}, {"two", 5}, {"three", 100}, {"four", 10000000}
+        {"one", 1}, {"two", 5}, {"three", 100}, {"four", 10000}, {"five", 10000000}
     };
     public enum Turn { Black, White };
     public GameObject blackChess;  //黑棋
@@ -31,7 +31,7 @@ public class Board : MonoBehaviour
     private int LastMoveRow = -1;  
     private int LastMoveCol = -1;  //记录最后一步棋的行列
     private const float THRESHOLD = 1f; //用来判断曼哈顿距离的阈值
-    private const int DEPTH = 3; //搜索深度
+    private const int DEPTH = 2; //搜索深度
     public Image winImage;
     public Sprite blackWinSprite;
     public Sprite whiteWinSprite;
@@ -122,10 +122,10 @@ public class Board : MonoBehaviour
         // Debug.Log("可行空位数： " + GetMoves().Count);
         if (GetMoves().Count > 0) {
 
-            row = GetMoves()[0][0];
-            col = GetMoves()[0][1];
-            // row = FindBestMove(DEPTH)[0];
-            // col = FindBestMove(DEPTH)[1];
+            // row = GetMoves()[0][0];
+            // col = GetMoves()[0][1];
+            row = FindBestMove(DEPTH)[0];
+            col = FindBestMove(DEPTH)[1];
         }
         // Debug.Log("next move: " + row + ", " + col);
         Instantiate(whiteChess, new Vector3(chessPos[row,col].x, chessPos[row,col].y, 0), Quaternion.identity);
@@ -342,6 +342,7 @@ public class Board : MonoBehaviour
                 score += scoreStatus["four"];
                 break;
                 case 5: 
+                score += scoreStatus["five"];
                 isGameOver = true;
                 if (player == ChessInfo.black) {
                     winImage.gameObject.SetActive(true);
